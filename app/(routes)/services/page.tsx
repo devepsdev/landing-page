@@ -19,7 +19,7 @@ const ServicesPage = () => {
             Desarrollo soluciones tecnológicas end-to-end utilizando las mejores
             prácticas de la industria. Mi experiencia abarca el desarrollo
             frontend con React, Angular y Next.js, backends robustos con Spring
-            Boot, Django y Node.js, arquitecturas de bases de datos optimizadas,
+            Boot, Node.js y Express, arquitecturas de bases de datos optimizadas,
             y estrategias de despliegue modernas con DevOps. Cada servicio está
             diseñado para integrarse perfectamente con los demás, creando un
             ecosistema digital coherente y eficiente que escala con tu negocio y

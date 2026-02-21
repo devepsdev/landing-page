@@ -79,7 +79,7 @@ export const dataAboutPage = [
     title: "Full Stack Developer",
     subtitle: "Grup Essentia",
     description:
-      "En Grup Essentia desarrollé y mantuve aplicaciones web utilizando tecnologías modernas del stack completo. Implementé funcionalidades frontend con frameworks JavaScript, diseñé interfaces de usuario responsivas y optimicé la experiencia del usuario. Gestioné bases de datos, creé APIs para integración de servicios externos y colaboré en la migración de sistemas legacy a arquitecturas más escalables.",
+      "En Grup Essentia desarrollé y mantuve aplicaciones web utilizando tecnologías modernas del stack completo. Implementé funcionalidades frontend con Angular, diseñé interfaces de usuario responsivas y optimicé la experiencia del usuario. Gestioné bases de datos con MySQL, creé APIs con Spring Boot y colaboré en la migración de sistemas legacy a arquitecturas más escalables.",
     date: "junio 2025",
   },
   {
@@ -87,7 +87,7 @@ export const dataAboutPage = [
     title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
-      "Formación completa en desarrollo web full-stack. Implementé aplicaciones con Spring Boot, React y Angular, trabajando con arquitecturas REST, sistemas de autenticación JWT y despliegue en servidores Linux. Proyectos destacados: Abasta (gestión B2B de proveedores) y Gafas Viajeras (aplicación de compartición de fotos).",
+      "Formación completa en desarrollo web full-stack. Implementé aplicaciones con Spring Boot, Node, React, Angular, Java EE (JSP, Servlets), JavaScript, HTML5/CSS3 y PHP, trabajando con arquitecturas REST, sistemas de autenticación JWT y despliegue en servidores Linux. Proyecto destacado: Abasta (gestión B2B de proveedores).",
     date: "enero 2026",
   },
   {
@@ -95,7 +95,7 @@ export const dataAboutPage = [
     title: "CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
-      "Desarrollo de aplicaciones móviles nativas para Android con Java y Kotlin. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos SQLite y MySQL.",
+      "Desarrollo de aplicaciones móviles nativas para Android con Java y Kotlin (Jetpack Compose), y aplicaciones de escritorio con JavaFX y .NET. Programación concurrente y desarrollo de videojuegos con LibGDX. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos PostreSQL y MySQL.",
     date: "enero 2025",
   },
   {
@@ -103,7 +103,7 @@ export const dataAboutPage = [
     title: "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
-      "Administración de sistemas Linux y Windows Server, configuración de servicios de red (Apache, DNS, DHCP), virtualización con Docker, scripts de automatización en Bash y PowerShell, y gestión de seguridad informática.",
+      "Administración de sistemas Linux y Windows Server, configuración de servicios de red (Apache, Nginx, DNS, DHCP, SFTP, FTPS), virtualización y contenedores con Docker y Docker Compose, scripts de automatización en Bash, bases de datos con PL/pgSQL, diseño de redes (OSPF, EIGRP, VLANs, NAT) y gestión de seguridad informática (certificados digitales, cifrado, PKI).",
     date: "junio 2023",
   },
 ];
@@ -150,7 +150,7 @@ export const serviceData = [
     icon: <Smartphone />,
     title: "Desarrollo Móvil",
     description:
-      "Aplicaciones nativas y híbridas para iOS y Android con React Native y Flutter",
+      "Aplicaciones nativas y híbridas para iOS y Android con Kotlin y Flutter",
   },
   {
     icon: <Database />,
@@ -175,12 +175,6 @@ export const serviceData = [
     title: "DevOps & Deploy",
     description:
       "Configuración de CI/CD, despliegue en cloud y monitoreo de aplicaciones en producción",
-  },
-  {
-    icon: <Rocket />,
-    title: "SEO",
-    description:
-      "Optimización de tu presencia en línea mediante estrategias de SEO técnico y de contenido para mejorar el posicionamiento",
   },
 ];
 
@@ -217,7 +211,7 @@ export const dataPortfolio = [
     id: 5,
     title: "Web de pelis",
     image: "/image-5.jpg",
-    urlGithub: "https://github.com/devepsdev/moviefy-frontend",
+    urlGithub: "https://github.com/devepsdev/moviesfy",
     urlDemo: "https://deveps.ddns.net/movies/",
   },
   {
