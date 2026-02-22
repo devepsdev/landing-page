@@ -197,7 +197,7 @@ export const dataPortfolio = [
     id: 3,
     title: "Gafas Viajeras",
     image: "/image-3.jpg",
-    urlGithub: "https://github.com/devepsdev/gafasfy-frontend",
+    urlGithub: "https://github.com/devepsdev/gafasfy",
     urlDemo: "https://deveps.ddns.net/gafasviajeras/",
   },
   {
@@ -218,7 +218,7 @@ export const dataPortfolio = [
     id: 6,
     title: "App de Notas",
     image: "/image-6.jpg",
-    urlGithub: "https://github.com/devepsdev/notesfy-frontend",
+    urlGithub: "https://github.com/devepsdev/notesfy",
     urlDemo: "https://deveps.ddns.net/notes/",
   },
   {
@@ -232,7 +232,7 @@ export const dataPortfolio = [
     id: 8,
     title: "App de Tareas",
     image: "/image-8.jpg",
-    urlGithub: "https://github.com/devepsdev/taskify-frontend",
+    urlGithub: "https://github.com/devepsdev/taskify",
     urlDemo: "https://deveps.ddns.net/tasks/",
   },
 ];
