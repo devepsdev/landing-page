@@ -27,7 +27,7 @@ const PortfolioBox = (props: PortfolioBoxProps) => {
                 width={200} height={200} className="w-full md:w-[200px] rounded-2xl h-auto"
             />
 
-            <div className="flex gap-5 mt-5">
+            <div className="flex gap-5 mt-5 justify-between">
                 <Link
                     href={urlGithub}
                     target="_blank"
