@@ -230,7 +230,7 @@ export const dataPortfolio = [
   },
   {
     id: 8,
-    title: "Takify -Django - Next.js - Tailwind CSS - SQLite3 - Python",
+    title: "Taskify -Django - Next.js - Tailwind CSS - SQLite3 - Python",
     image: "/image-8.jpg",
     urlGithub: "https://github.com/devepsdev/taskify",
     urlDemo: "https://deveps.ddns.net/tasks/",
