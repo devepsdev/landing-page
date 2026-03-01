@@ -210,7 +210,7 @@ export const dataPortfolio = [
   {
     id: 5,
     title: "Moviesfy - Angular - Node.js - Express - MongoDB",
-    image: "/image-5.jpg",
+    image: "/image-5.png",
     urlGithub: "https://github.com/devepsdev/moviesfy",
     urlDemo: "https://deveps.ddns.net/movies/",
   },
