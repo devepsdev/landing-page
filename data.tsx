@@ -4,13 +4,10 @@ import {
   HomeIcon,
   UserRound,
   Linkedin,
-  X,
+  Github,
   Pencil,
   Computer,
-  Rocket,
   Speech,
-  Instagram,
-  Twitch,
   Server,
   Database,
   Shield,
@@ -25,18 +22,8 @@ export const socialNetworks = [
   },
   {
     id: 2,
-    logo: <X size={30} strokeWidth={1} />,
-    src: "https://x.com/devepsdev",
-  },
-  {
-    id: 3,
-    logo: <Instagram size={30} strokeWidth={1} />,
-    src: "https://www.instagram.com/devepsdev/",
-  },
-  {
-    id: 4,
-    logo: <Twitch size={30} strokeWidth={1} />,
-    src: "https://www.twitch.tv/deveps",
+    logo: <Github size={30} strokeWidth={1} />,
+    src: "https://github.com/devepsdev",
   },
 ];
 
@@ -76,35 +63,48 @@ export const itemsNavbar = [
 export const dataAboutPage = [
   {
     id: 1,
-    title: "Full Stack Developer",
-    subtitle: "Grup Essentia",
+    title: "Full Stack Developer — Colaboración técnica",
+    subtitle: "SIT · Barcelona",
     description:
-      "En Grup Essentia desarrollé y mantuve aplicaciones web utilizando tecnologías modernas del stack completo. Implementé funcionalidades frontend con Angular, diseñé interfaces de usuario responsivas y optimicé la experiencia del usuario. Gestioné bases de datos con MySQL, creé APIs con Spring Boot y colaboré en la migración de sistemas legacy a arquitecturas más escalables.",
-    date: "junio 2025",
+      "Desarrollo y mantenimiento de aplicaciones web para clientes del sector educativo. Implemento el frontend con Angular y el backend con Spring Boot, diseño APIs REST e integro con MySQL. Uso Git para control de versiones y doy soporte al despliegue con Docker y CI/CD en GitHub Actions.",
+    dateStart: "jul 2024",
+    dateEnd: "actualidad",
   },
   {
     id: 2,
+    title: "Full Stack Developer — Prácticas FCT",
+    subtitle: "Grup Essentia",
+    description:
+      "Desarrollé y mantuve aplicaciones web utilizando tecnologías modernas del stack completo. Implementé funcionalidades frontend con Angular, diseñé interfaces de usuario responsivas y optimicé la experiencia del usuario. Gestioné bases de datos con MySQL, creé APIs con Spring Boot y colaboré en la migración de sistemas legacy a arquitecturas más escalables.",
+    dateStart: "ene 2025",
+    dateEnd: "jun 2025",
+  },
+  {
+    id: 3,
     title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
       "Formación completa en desarrollo web full-stack. Implementé aplicaciones con Spring Boot, Node, React, Angular, Java EE (JSP, Servlets), JavaScript, HTML5/CSS3 y PHP, trabajando con arquitecturas REST, sistemas de autenticación JWT y despliegue en servidores Linux. Proyecto destacado: Abasta (gestión B2B de proveedores).",
-    date: "enero 2026",
-  },
-  {
-    id: 3,
-    title: "CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)",
-    subtitle: "IOC - Institut Obert de Catalunya",
-    description:
-      "Desarrollo de aplicaciones móviles nativas para Android con Java y Kotlin (Jetpack Compose), y aplicaciones de escritorio con JavaFX y .NET. Programación concurrente y desarrollo de videojuegos con LibGDX. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos PostreSQL y MySQL.",
-    date: "enero 2025",
+    dateStart: "sep 2024",
+    dateEnd: "ene 2026",
   },
   {
     id: 4,
+    title: "CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)",
+    subtitle: "IOC - Institut Obert de Catalunya",
+    description:
+      "Desarrollé aplicaciones móviles nativas para Android con Java y Kotlin (Jetpack Compose) y aplicaciones de escritorio con JavaFX y .NET. Trabajé con programación concurrente y desarrollo de videojuegos con LibGDX. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos PostgreSQL y MySQL.",
+    dateStart: "sep 2023",
+    dateEnd: "ene 2025",
+  },
+  {
+    id: 5,
     title: "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
-      "Administración de sistemas Linux y Windows Server, configuración de servicios de red (Apache, Nginx, DNS, DHCP, SFTP, FTPS), virtualización y contenedores con Docker y Docker Compose, scripts de automatización en Bash, bases de datos con PL/pgSQL, diseño de redes (OSPF, EIGRP, VLANs, NAT) y gestión de seguridad informática (certificados digitales, cifrado, PKI).",
-    date: "junio 2023",
+      "Administré sistemas Linux y Windows Server y configuré servicios de red (Apache, Nginx, DNS, DHCP, SFTP, FTPS). Trabajé con virtualización y contenedores mediante Docker y Docker Compose, automaticé tareas con scripts Bash y gestioné bases de datos con PL/pgSQL. Diseñé redes con OSPF, EIGRP, VLANs y NAT, y apliqué seguridad informática con certificados digitales, cifrado y PKI.",
+    dateStart: "sep 2020",
+    dateEnd: "jun 2023",
   },
 ];
 
