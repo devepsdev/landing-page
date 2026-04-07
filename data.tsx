@@ -181,10 +181,10 @@ export const serviceData = [
 export const dataPortfolio = [
   {
     id: 1,
-    title: "Abasta - Spring Boot - React - SCSS - JWT - Bootstrap - TypeScript",
+    title: "Pedidoo - Spring Boot - Angular - IA - JWT - MCP - n8n - Docker",
     image: "/image-1.png",
-    urlGithub: "https://github.com/abastaplatform/abasta",
-    urlDemo: "https://deveps.ddns.net/abasta/",
+    urlGithub: "https://github.com/devepsdev/pedidoo",
+    urlDemo: "https://deveps.ddns.net/pedidoo/",
   },
   {
     id: 2,
