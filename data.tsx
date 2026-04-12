@@ -184,7 +184,7 @@ export const dataPortfolio = [
     title: "Pedidoo - Spring Boot - Angular - IA - JWT - MCP - n8n - Docker",
     image: "/image-1.png",
     urlGithub: "https://github.com/devepsdev/pedidoo",
-    urlDemo: "https://deveps.ddns.net/pedidoo/",
+    urlDemo: "https://pedidoo.deveps.dev",
   },
   {
     id: 2,
