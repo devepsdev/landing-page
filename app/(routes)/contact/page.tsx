@@ -11,12 +11,16 @@ import ContainerPage from "@/components/container-page";
 const ContactPage = () => {
   const [formData, setFormData] = useState({
     name: "",
+    apellidos: "",
     email: "",
+    tel: "",
+    why: "",
+    language: "",
     textarea: "",
   });
 
   const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -34,7 +38,11 @@ const ContactPage = () => {
       },
       body: new URLSearchParams({
         name: formData.name,
+        apellidos: formData.apellidos,
         email: formData.email,
+        tel: formData.tel,
+        why: formData.why,
+        language: formData.language,
         textarea: formData.textarea,
       }),
     });
@@ -42,7 +50,11 @@ const ContactPage = () => {
     // Reset form
     setFormData({
       name: "",
+      apellidos: "",
       email: "",
+      tel: "",
+      why: "",
+      language: "",
       textarea: "",
     });
   };
@@ -117,47 +129,127 @@ const ContactPage = () => {
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Nombre
+                  </label>
+                  <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    value={formData.name}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                    placeholder="Tu nombre"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="apellidos"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Apellidos
+                  </label>
+                  <input
+                    type="text"
+                    id="apellidos"
+                    name="apellidos"
+                    value={formData.apellidos}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                    placeholder="Tus apellidos"
+                  />
+                </div>
+              </div>
+
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Email
+                  </label>
+                  <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                    placeholder="tu.email@ejemplo.com"
+                  />
+                </div>
+                <div>
+                  <label
+                    htmlFor="tel"
+                    className="block text-sm font-medium mb-2"
+                  >
+                    Teléfono
+                  </label>
+                  <input
+                    type="tel"
+                    id="tel"
+                    name="tel"
+                    value={formData.tel}
+                    onChange={handleInputChange}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                    placeholder="+34 600 000 000"
+                  />
+                </div>
+              </div>
+
               <div>
                 <label
-                  htmlFor="name"
+                  htmlFor="why"
                   className="block text-sm font-medium mb-2"
                 >
-                  Nombre completo
+                  Motivo de contacto
+                </label>
+                <select
+                  id="why"
+                  name="why"
+                  value={formData.why}
+                  onChange={handleInputChange}
+                  required
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                >
+                  <option value="" disabled>Selecciona un motivo</option>
+                  <option value="proyecto">Nuevo proyecto</option>
+                  <option value="freelance">Trabajo freelance</option>
+                  <option value="consulta">Consulta técnica</option>
+                  <option value="otro">Otro</option>
+                </select>
+              </div>
+
+              <div>
+                <label
+                  htmlFor="language"
+                  className="block text-sm font-medium mb-2"
+                >
+                  Tecnología / Lenguaje
                 </label>
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="language"
+                  name="language"
+                  value={formData.language}
                   onChange={handleInputChange}
-                  required
                   className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
-                  placeholder="Tu nombre completo"
+                  placeholder="React, Next.js, Spring Boot..."
                 />
               </div>
 
               <div>
                 <label
-                  htmlFor="email"
-                  className="block text-sm font-medium mb-2"
-                >
-                  Email
-                </label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
-                  onChange={handleInputChange}
-                  required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
-                  placeholder="tu.email@ejemplo.com"
-                />
-              </div>
-
-              <div>
-                <label
-                  htmlFor="message"
+                  htmlFor="textarea"
                   className="block text-sm font-medium mb-2"
                 >
                   Mensaje
@@ -168,7 +260,7 @@ const ContactPage = () => {
                   value={formData.textarea}
                   onChange={handleInputChange}
                   required
-                  rows={2}
+                  rows={3}
                   className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors resize-none"
                   placeholder="Cuéntame sobre tu proyecto o consulta..."
                 />
