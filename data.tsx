@@ -181,10 +181,10 @@ export const serviceData = [
 export const dataPortfolio = [
   {
     id: 1,
-    title: "Pedidoo - Spring Boot - Angular - IA - JWT - MCP - n8n - Docker",
+    title: "PedidAI - Spring Boot - Angular - IA - JWT - MCP - n8n - Docker",
     image: "/image-1.png",
-    urlGithub: "https://github.com/devepsdev/pedidoo",
-    urlDemo: "https://pedidoo.deveps.dev",
+    urlGithub: "https://github.com/devepsdev/pedidai",
+    urlDemo: "https://pedidai.es",
   },
   {
     id: 2,
