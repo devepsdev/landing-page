@@ -219,13 +219,13 @@ const ContactPage = () => {
                   value={formData.why}
                   onChange={handleInputChange}
                   required
-                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors"
+                  className="w-full px-4 py-3 bg-white/5 border border-white/20 rounded-lg focus:outline-none focus:border-secondary focus:ring-1 focus:ring-secondary transition-colors text-white"
                 >
-                  <option value="" disabled>Selecciona un motivo</option>
-                  <option value="proyecto">Nuevo proyecto</option>
-                  <option value="freelance">Trabajo freelance</option>
-                  <option value="consulta">Consulta técnica</option>
-                  <option value="otro">Otro</option>
+                  <option value="" disabled style={{ backgroundColor: "#353048" }}>Selecciona un motivo</option>
+                  <option value="proyecto" style={{ backgroundColor: "#353048" }}>Nuevo proyecto</option>
+                  <option value="freelance" style={{ backgroundColor: "#353048" }}>Trabajo freelance</option>
+                  <option value="consulta" style={{ backgroundColor: "#353048" }}>Consulta técnica</option>
+                  <option value="otro" style={{ backgroundColor: "#353048" }}>Otro</option>
                 </select>
               </div>
 
