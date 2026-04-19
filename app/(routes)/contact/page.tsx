@@ -266,6 +266,22 @@ const ContactPage = () => {
                 />
               </div>
 
+              <div className="flex items-start gap-2">
+                <input
+                  type="checkbox"
+                  id="privacy"
+                  name="privacy"
+                  required
+                  className="mt-1 accent-secondary cursor-pointer"
+                />
+                <label htmlFor="privacy" className="text-gray-300 cursor-pointer" style={{ fontSize: "13px" }}>
+                  He leído y acepto la{" "}
+                  <a href="/privacidad" className="text-secondary hover:underline">
+                    política de privacidad
+                  </a>
+                </label>
+              </div>
+
               <button
                 type="submit"
                 className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors font-medium"

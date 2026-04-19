@@ -8,6 +8,7 @@ import "swiper/css/scrollbar";
 
 import Navbar from "@/components/navbar";
 import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 const urbanist = Urbanist({ subsets: ["latin"] });
 
@@ -27,6 +28,7 @@ export default function RootLayout({
         <Navbar />
         <Header />
         {children}
+        <Footer />
       </body>
     </html>
   );
