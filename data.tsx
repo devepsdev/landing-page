@@ -181,7 +181,7 @@ export const serviceData = [
 export const dataPortfolio = [
   {
     id: 1,
-    title: "PedidAI - Spring Boot - Angular - IA - JWT - MCP - n8n - Docker",
+    title: "PedidAI - Spring Boot - Angular - JWT - IA - Docker - nginx",
     image: "/image-1.png",
     urlGithub: "https://github.com/devepsdev/pedidai",
     urlDemo: "https://pedidai.es",
@@ -236,4 +236,3 @@ export const dataPortfolio = [
     urlDemo: "https://deveps.ddns.net/tasks/",
   },
 ];
-
