@@ -1,0 +1,4 @@
+ErrorDocument 404 /404.html
+
+# URLs antiguas (antes de trailingSlash) -> nuevas rutas con barra final
+RedirectMatch 301 ^/(about-me|services|portfolio|server|contact|testimonials|aviso-legal|privacidad)\.html$ /$1/

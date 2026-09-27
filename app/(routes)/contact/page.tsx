@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 import CircleImage from "@/components/circle-image";
@@ -18,6 +19,10 @@ const ContactPage = () => {
     language: "",
     textarea: "",
   });
+  const [website, setWebsite] = useState("");
+  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">(
+    "idle"
+  );
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -31,32 +36,30 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    await fetch("contacto.php", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: new URLSearchParams({
-        name: formData.name,
-        apellidos: formData.apellidos,
-        email: formData.email,
-        tel: formData.tel,
-        why: formData.why,
-        language: formData.language,
-        textarea: formData.textarea,
-      }),
-    });
-    console.log("Formulario enviado:", formData);
-    // Reset form
-    setFormData({
-      name: "",
-      apellidos: "",
-      email: "",
-      tel: "",
-      why: "",
-      language: "",
-      textarea: "",
-    });
+    setStatus("sending");
+    try {
+      const res = await fetch("/contacto.php", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: new URLSearchParams({ ...formData, website }),
+      });
+      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      setStatus("ok");
+      // Reset form
+      setFormData({
+        name: "",
+        apellidos: "",
+        email: "",
+        tel: "",
+        why: "",
+        language: "",
+        textarea: "",
+      });
+    } catch {
+      setStatus("error");
+    }
   };
 
   return (
@@ -129,6 +132,18 @@ const ContactPage = () => {
             </h2>
 
             <form onSubmit={handleSubmit} className="space-y-6">
+              {/* Honeypot anti-spam: oculto para personas, los bots lo rellenan */}
+              <input
+                type="text"
+                name="website"
+                value={website}
+                onChange={(e) => setWebsite(e.target.value)}
+                tabIndex={-1}
+                autoComplete="off"
+                aria-hidden="true"
+                className="hidden"
+              />
+
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <label
@@ -276,19 +291,34 @@ const ContactPage = () => {
                 />
                 <label htmlFor="privacy" className="text-gray-300 cursor-pointer" style={{ fontSize: "13px" }}>
                   He leído y acepto la{" "}
-                  <a href="/privacidad" className="text-secondary hover:underline">
+                  <Link href="/privacidad" className="text-secondary hover:underline">
                     política de privacidad
-                  </a>
+                  </Link>
                 </label>
               </div>
 
               <button
                 type="submit"
-                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors font-medium"
+                disabled={status === "sending"}
+                className="w-full flex items-center justify-center space-x-2 px-6 py-3 bg-secondary hover:bg-secondary/80 rounded-lg transition-colors font-medium disabled:opacity-60 disabled:cursor-not-allowed"
               >
                 <Send className="w-5 h-5" />
-                <span>Enviar mensaje</span>
+                <span>
+                  {status === "sending" ? "Enviando..." : "Enviar mensaje"}
+                </span>
               </button>
+
+              {status === "ok" && (
+                <p role="status" className="text-sm text-center text-green-400">
+                  ¡Mensaje enviado! Te responderé lo antes posible.
+                </p>
+              )}
+              {status === "error" && (
+                <p role="alert" className="text-sm text-center text-red-400">
+                  No se ha podido enviar el mensaje. Inténtalo de nuevo o
+                  escríbeme a devepsdev@gmail.com.
+                </p>
+              )}
             </form>
           </div>
         </div>
