@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
@@ -20,9 +20,58 @@ const ContactPage = () => {
     textarea: "",
   });
   const [website, setWebsite] = useState("");
-  const [status, setStatus] = useState<"idle" | "sending" | "ok" | "error">(
-    "idle"
-  );
+  const [status, setStatus] = useState<
+    "idle" | "sending" | "ok" | "error" | "rapido" | "token" | "wait" | "captcha"
+  >("idle");
+
+  // Token anti-spam firmado por el servidor: se pide cuando el formulario se hace visible
+  const formRef = useRef<HTMLFormElement>(null);
+  const tokenRef = useRef<{ t: number; n: string; s: string } | null>(null);
+  const pidiendoRef = useRef(false);
+  const turnstileKey = process.env.NEXT_PUBLIC_TURNSTILE_SITEKEY || "";
+
+  const pedirToken = () => {
+    if (tokenRef.current || pidiendoRef.current) return;
+    pidiendoRef.current = true;
+    fetch("/contacto.php?token=1", { cache: "no-store" })
+      .then((r) => (r.ok ? r.json() : null))
+      .then((d) => {
+        if (d && d.t) tokenRef.current = d;
+      })
+      .catch(() => {})
+      .finally(() => {
+        pidiendoRef.current = false;
+      });
+  };
+
+  useEffect(() => {
+    const form = formRef.current;
+    if (!form) return;
+    const io = new IntersectionObserver(
+      (es) => {
+        if (es.some((x) => x.isIntersecting)) {
+          pedirToken();
+          io.disconnect();
+        }
+      },
+      { threshold: 0.2 }
+    );
+    io.observe(form);
+    return () => io.disconnect();
+  }, []);
+
+  // Cloudflare Turnstile (opcional): solo si se compila con NEXT_PUBLIC_TURNSTILE_SITEKEY
+  useEffect(() => {
+    if (!turnstileKey) return;
+    const s = document.createElement("script");
+    s.src = "https://challenges.cloudflare.com/turnstile/v0/api.js";
+    s.async = true;
+    s.defer = true;
+    document.head.appendChild(s);
+    return () => {
+      s.remove();
+    };
+  }, [turnstileKey]);
 
   const handleInputChange = (
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
@@ -36,17 +85,55 @@ const ContactPage = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    const tk = tokenRef.current;
+    if (!tk) {
+      setStatus("wait");
+      pedirToken();
+      return;
+    }
+    const captcha = formRef.current?.querySelector<HTMLInputElement>(
+      '[name="cf-turnstile-response"]'
+    )?.value;
+    if (turnstileKey && !captcha) {
+      setStatus("captcha");
+      return;
+    }
     setStatus("sending");
     try {
+      const body = new URLSearchParams({
+        ...formData,
+        website,
+        tk_t: String(tk.t),
+        tk_n: tk.n,
+        tk_s: tk.s,
+      });
+      if (captcha) body.set("cf-turnstile-response", captcha);
       const res = await fetch("/contacto.php", {
         method: "POST",
         headers: {
           "Content-Type": "application/x-www-form-urlencoded",
         },
-        body: new URLSearchParams({ ...formData, website }),
+        body,
       });
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // El token es de un solo uso: se pedirá otro para el siguiente envío
+      tokenRef.current = null;
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}));
+        if (data.error === "rapido") {
+          setStatus("rapido");
+          setTimeout(pedirToken, 0);
+        } else if (data.error === "token") {
+          setStatus("token");
+          pedirToken();
+        } else if (data.error === "captcha") {
+          setStatus("captcha");
+        } else {
+          throw new Error(`HTTP ${res.status}`);
+        }
+        return;
+      }
       setStatus("ok");
+      pedirToken();
       // Reset form
       setFormData({
         name: "",
@@ -59,6 +146,7 @@ const ContactPage = () => {
       });
     } catch {
       setStatus("error");
+      pedirToken();
     }
   };
 
@@ -131,7 +219,7 @@ const ContactPage = () => {
               Envíame un mensaje
             </h2>
 
-            <form onSubmit={handleSubmit} className="space-y-6">
+            <form ref={formRef} onFocus={pedirToken} onSubmit={handleSubmit} className="space-y-6">
               {/* Honeypot anti-spam: oculto para personas, los bots lo rellenan */}
               <input
                 type="text"
@@ -297,6 +385,14 @@ const ContactPage = () => {
                 </label>
               </div>
 
+              {turnstileKey && (
+                <div
+                  className="cf-turnstile"
+                  data-sitekey={turnstileKey}
+                  data-theme="dark"
+                />
+              )}
+
               <button
                 type="submit"
                 disabled={status === "sending"}
@@ -311,6 +407,23 @@ const ContactPage = () => {
               {status === "ok" && (
                 <p role="status" className="text-sm text-center text-green-400">
                   ¡Mensaje enviado! Te responderé lo antes posible.
+                </p>
+              )}
+              {(status === "rapido" || status === "wait") && (
+                <p role="alert" className="text-sm text-center text-yellow-300">
+                  {status === "rapido"
+                    ? "Has enviado el formulario muy rápido. Espera unos segundos y vuelve a pulsar «Enviar»."
+                    : "Un momento… estamos preparando el envío. Vuelve a pulsar «Enviar» en unos segundos."}
+                </p>
+              )}
+              {status === "token" && (
+                <p role="alert" className="text-sm text-center text-yellow-300">
+                  La sesión del formulario ha caducado. Vuelve a pulsar «Enviar».
+                </p>
+              )}
+              {status === "captcha" && (
+                <p role="alert" className="text-sm text-center text-yellow-300">
+                  No hemos podido verificar que eres una persona. Inténtalo de nuevo.
                 </p>
               )}
               {status === "error" && (
