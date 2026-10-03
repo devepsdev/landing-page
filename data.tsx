@@ -17,11 +17,13 @@ import {
 export const socialNetworks = [
   {
     id: 1,
+    name: "LinkedIn",
     logo: <Linkedin size={30} strokeWidth={1} />,
     src: "https://www.linkedin.com/in/enrique-perez-sanchez",
   },
   {
     id: 2,
+    name: "GitHub",
     logo: <Github size={30} strokeWidth={1} />,
     src: "https://github.com/devepsdev",
   },
@@ -30,31 +32,31 @@ export const socialNetworks = [
 export const itemsNavbar = [
   {
     id: 1,
-    title: "Home",
+    title: "Inicio",
     icon: <HomeIcon size={25} color="#fff" strokeWidth={1} />,
     link: "/",
   },
   {
     id: 2,
-    title: "User",
+    title: "Sobre mí",
     icon: <UserRound size={25} color="#fff" strokeWidth={1} />,
     link: "/about-me",
   },
   {
     id: 3,
-    title: "Book",
+    title: "Servicios",
     icon: <BookText size={25} color="#fff" strokeWidth={1} />,
     link: "/services",
   },
   {
     id: 4,
-    title: "Target",
+    title: "Portfolio",
     icon: <CodeSquare size={25} color="#fff" strokeWidth={1} />,
     link: "/portfolio",
   },
   {
     id: 5,
-    title: "Server",
+    title: "Servidor",
     icon: <Activity size={25} color="#fff" strokeWidth={1} />,
     link: "/server",
   },
