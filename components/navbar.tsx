@@ -8,7 +8,8 @@ import { MotionTransition } from "./transition-component";
 import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-    const router = usePathname()
+    // Con trailingSlash la ruta llega como "/server/"; los enlaces son "/server"
+    const router = usePathname().replace(/(.)\/$/, "$1")
 
     return (
         <MotionTransition position="right" className="fixed z-40 flex flex-col items-center justify-center w-full mt-auto h-max bottom-10">
