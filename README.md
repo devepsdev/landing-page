@@ -89,6 +89,19 @@ yarn dev
 
 Visita [http://localhost:3000](http://localhost:3000) para ver la aplicación.
 
+## 🌐 Despliegue
+
+Publicada en **[portfolio.deveps.dev](https://portfolio.deveps.dev)** (VPS con nginx + Let's Encrypt).
+
+```bash
+./deploy.sh            # compila (next export), empaqueta out/ + contacto.php y lo publica en el VPS
+./deploy.sh --dry-run  # compila y solo lista lo que se enviaría
+```
+
+`deploy.sh` usa `/usr/local/bin/deploy-site` del VPS, que guarda una copia antes de publicar
+(rollback: `sudo deploy-site --rollback portfolio.deveps.dev`). `contacto.php` no está en git:
+lee su configuración de `/var/www/configs/` y guarda los mensajes en MySQL (`landing_db`, usuario `landing`).
+
 ## 📦 Scripts Disponibles
 
 ```bash
@@ -154,7 +167,7 @@ Las contribuciones son bienvenidas. Por favor:
 
 **DevEps** - Desarrollador Full Stack
 
-- Portfolio: [deveps.ddns.net](https://deveps.ddns.net)
+- Portfolio: [portfolio.deveps.dev](https://portfolio.deveps.dev)
 - Email: devepsdev@gmail.com
 - LinkedIn: [www.linkedin.com/in/enrique-perez-sanchez](https://www.linkedin.com/in/enrique-perez-sanchez/)
 - GitHub: [github.com/devepsdev](https://github.com/devepsdev)

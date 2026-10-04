@@ -23,12 +23,12 @@ const AvisoLegalPage = () => {
               <li><span className="font-medium">Actividad:</span> Desarrollo web y servicios informáticos</li>
               <li><span className="font-medium">Web:</span>{" "}
                 <a
-                  href="https://deveps.ddns.net"
+                  href="https://portfolio.deveps.dev"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="text-secondary hover:underline"
                 >
-                  https://deveps.ddns.net
+                  https://portfolio.deveps.dev
                 </a>
               </li>
             </ul>
