@@ -203,8 +203,9 @@ const Hero = ({
             Monitor del <span className="font-bold text-secondary">servidor</span>
           </h1>
           <p className="mt-3 text-sm leading-relaxed text-gray-300 md:text-base">
-            Esta web y mis proyectos se ejecutan en una Orange Pi 5 que tengo en casa, en Barcelona.
-            Aquí puedes ver su estado real: rendimiento, servicios, contenedores y tráfico.
+            Parte de mis proyectos (Gafasfy, Moviesfy, Notesfy y Taskify, además de servicios internos) se
+            ejecutan en una Orange Pi 5 que tengo en casa, en Barcelona, y se publican en deveps.dev a través
+            de un VPS. Aquí puedes ver su estado real: rendimiento, proyectos, servicios y tráfico.
           </p>
         </div>
 
