@@ -132,7 +132,7 @@ const ServerPage = () => {
             <div className="grid gap-5 lg:grid-cols-3">
               <ServicesCard data={data} now={now} className="lg:col-span-2" />
               <div className="space-y-5">
-                <DockerCard data={data} now={now} />
+                {data.docker.some((c) => !c.error) && <DockerCard data={data} now={now} />}
                 <TimersCard data={data} now={now} />
               </div>
             </div>
