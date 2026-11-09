@@ -202,4 +202,11 @@ export const dataPortfolio = [
     urlGithub: "https://github.com/devepsdev/reserva",
     urlDemo: "https://reserva-deveps.vercel.app/",
   },
+  {
+    id: 4,
+    title: "Triage - Spring Boot - Angular - MCP - Docker",
+    image: "/image-triage.jpg",
+    urlGithub: "https://github.com/devepsdev/triage",
+    urlDemo: "https://triage.deveps.dev",
+  },
 ];
