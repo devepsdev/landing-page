@@ -180,32 +180,73 @@ export const serviceData = [
   },
 ];
 
+// Datos sacados de los README de cada repositorio y de Proyectos/CLAUDE.md (noviembre de 2026).
 export const dataPortfolio = [
   {
     id: 1,
-    title: "PedidAI - Spring Boot - Angular - JWT - IA - Docker - n8n - nginx",
-    image: "/image-1.jpg",
+    name: "PedidAI",
+    status: "En producción",
+    summary:
+      "Compras para bares y restaurantes: compara lo que te cobra cada proveedor y te avisa cuando sube un precio.",
+    highlights: [
+      "Lee albaranes y facturas desde una foto o un PDF (Tesseract + Mistral AI).",
+      "Compara el mismo producto entre proveedores y guarda el historial de precios.",
+      "Pedidos por chat: el asistente los prepara con el proveedor más barato.",
+    ],
+    stack: ["Java 25", "Spring Boot 3.5", "Angular 21", "Tailwind 4", "MySQL", "Mistral AI", "n8n", "Docker"],
+    deploy: "VPS propio · nginx y systemd · asistente y n8n en Docker",
+    image: "/portfolio/pedidai.jpg",
     urlGithub: "https://github.com/devepsdev/pedidai",
     urlDemo: "https://pedidai.es",
   },
   {
     id: 2,
-    title: "Facialy - Django - React - Docker - GitHub Actions",
-    image: "/image-2.jpg",
+    name: "Facialy",
+    status: "Demo pública",
+    summary:
+      "Control de acceso con reconocimiento facial en tiempo real, desde el navegador y con la webcam.",
+    highlights: [
+      "Demo sin registro: la sesión vive en memoria y no se guarda nada.",
+      "Kiosco que concede o deniega el acceso según horario y estado, con registro y exportación CSV.",
+      "Reconocimiento solo con CPU, con los modelos YuNet y SFace de OpenCV.",
+    ],
+    stack: ["Django 6", "DRF", "React 19", "Vite 7", "Tailwind 4", "PostgreSQL 16", "OpenCV", "Docker"],
+    deploy: "VPS propio · Docker · CI/CD con GitHub Actions",
+    image: "/portfolio/facialy.jpg",
     urlGithub: "https://github.com/devepsdev/facialy",
     urlDemo: "https://facialy.deveps.dev",
   },
   {
     id: 3,
-    title: "Reserva - Next.js - Tailwind CSS - Prisma - PostgreSQL - JWT",
-    image: "/image-6.jpg",
+    name: "Reserva",
+    status: "Demo pública",
+    summary:
+      "Reservas online para un restaurante de ejemplo, con panel de administración.",
+    highlights: [
+      "Busca mesas libres por fecha, hora y comensales, sin solapamientos.",
+      "Reserva en 4 pasos: buscar, elegir mesa, datos y confirmación.",
+      "Panel con estadísticas, filtros y estados de cada reserva.",
+    ],
+    stack: ["Next.js 16", "React 19", "TypeScript", "Tailwind 4", "Prisma 7", "PostgreSQL", "NextAuth"],
+    deploy: "Vercel + Prisma Postgres",
+    image: "/portfolio/reserva.jpg",
     urlGithub: "https://github.com/devepsdev/reserva",
     urlDemo: "https://reserva-deveps.vercel.app/",
   },
   {
     id: 4,
-    title: "Triage - Spring Boot - Angular - MCP - Docker",
-    image: "/image-triage.jpg",
+    name: "Triage",
+    status: "Demo pública",
+    summary:
+      "Un agente de IA investiga averías reales de servidor en directo. Solo lee: el arreglo lo aprueba una persona.",
+    highlights: [
+      "Herramientas por MCP de solo lectura y entornos en contenedores desechables.",
+      "Diagnósticos corregidos por código: 86 de 100 aciertos en la batería publicada.",
+      "Ante la inyección de instrucciones en los logs: 0 de 20 veces engañado.",
+    ],
+    stack: ["Java 25", "Spring Boot 4", "Angular 21", "MCP", "Mistral AI", "MySQL", "Docker"],
+    deploy: "VPS propio · 3 servicios systemd aislados · nginx",
+    image: "/portfolio/triage.jpg",
     urlGithub: "https://github.com/devepsdev/triage",
     urlDemo: "https://triage.deveps.dev",
   },
