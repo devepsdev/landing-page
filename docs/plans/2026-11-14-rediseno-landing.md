@@ -106,7 +106,7 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
 
 - [x] `npx tsc --noEmit`, `npm run lint`, `npm run build` sin errores
 - [x] Recorrer todas las páginas en local (escritorio, móvil, «reducir movimiento»), sin errores en la consola
-- [ ] Enseñar capturas a Enrique y pedir permiso para desplegar con `./deploy.sh` y para juntar con `main`
+- [x] Enseñar capturas a Enrique y pedir permiso para desplegar con `./deploy.sh` y para juntar con `main`
 
 ## Pendiente de Enrique
 
