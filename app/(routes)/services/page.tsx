@@ -15,7 +15,7 @@ const ServicesPage = () => {
             </h1>
             <p className="mt-6 text-lg leading-relaxed text-gray-300">
               Desarrollo la aplicación entera y me ocupo de que funcione después: servidor, despliegue,
-              seguridad y vigilancia. Cada punto tiene un ejemplo real que puedes abrir y probar.
+              seguridad y vigilancia. Cada punto lleva un ejemplo real con enlaces para comprobarlo.
             </p>
           </div>
           <Aportaciones />

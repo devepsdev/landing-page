@@ -173,6 +173,11 @@ export const dataAportar = [
     description:
       "Aplicaciones completas: backend con Spring Boot o Django, frontend con Angular, React o Next.js y bases de datos MySQL o PostgreSQL.",
     ejemplo: "PedidAI (Spring Boot + Angular), Facialy (Django + React) y Reserva (Next.js + Prisma).",
+    enlaces: [
+      { texto: "PedidAI", url: "https://pedidai.es" },
+      { texto: "Facialy", url: "https://facialy.deveps.dev" },
+      { texto: "Reserva", url: "https://reserva-deveps.vercel.app/" },
+    ],
   },
   {
     icon: <Server strokeWidth={1.5} />,
@@ -180,6 +185,9 @@ export const dataAportar = [
     description:
       "Servidores Linux, nginx, Docker, systemd y CI/CD con GitHub Actions. Lo que desarrollo lo dejo funcionando en producción y vigilado.",
     ejemplo: "Mis proyectos corren en mi propio VPS; Facialy se despliega solo con GitHub Actions.",
+    enlaces: [
+      { texto: "Despliegue de Facialy (GitHub Actions)", url: "https://github.com/devepsdev/facialy/tree/main/.github/workflows" },
+    ],
   },
   {
     icon: <Bot strokeWidth={1.5} />,
@@ -187,6 +195,11 @@ export const dataAportar = [
     description:
       "Integración de modelos de lenguaje en productos reales: lectura de documentos, asistentes con herramientas y agentes que solo pueden leer.",
     ejemplo: "PedidAI lee albaranes con Tesseract y Mistral AI; Triage investiga averías por MCP y acierta 86 de 100.",
+    enlaces: [
+      { texto: "PedidAI", url: "https://pedidai.es" },
+      { texto: "Triage", url: "https://triage.deveps.dev" },
+      { texto: "Medidas de Triage", url: "https://github.com/devepsdev/triage/blob/main/docs/medidas.md" },
+    ],
   },
   {
     icon: <Shield strokeWidth={1.5} />,
@@ -194,6 +207,10 @@ export const dataAportar = [
     description:
       "Mínimos permisos, servicios aislados y cabeceras de seguridad; pruebas contra la inyección de instrucciones en la IA.",
     ejemplo: "La API de PedidAI solo escucha en local tras nginx; a Triage la inyección le engañó 0 de 20 veces.",
+    enlaces: [
+      { texto: "Medidas de Triage", url: "https://github.com/devepsdev/triage/blob/main/docs/medidas.md" },
+      { texto: "Código de PedidAI", url: "https://github.com/devepsdev/pedidai" },
+    ],
   },
 ];
 

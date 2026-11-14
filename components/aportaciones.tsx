@@ -1,3 +1,5 @@
+import { ExternalLink } from "lucide-react";
+
 import { dataAportar } from "@/data";
 
 import Aparecer from "./aparecer";
@@ -21,6 +23,22 @@ const Aportaciones = () => (
             <span className="font-semibold text-gray-200">Ejemplo: </span>
             {a.ejemplo}
           </p>
+          <ul className="flex flex-wrap gap-2 mt-4">
+            {a.enlaces.map((e) => (
+              <li key={e.url + e.texto}>
+                <a
+                  href={e.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 min-h-9 px-3 py-1.5 text-sm font-medium transition-colors border rounded-lg border-secondary/40 text-secondary hover:bg-secondary/10 hover:border-secondary"
+                >
+                  {e.texto}
+                  <ExternalLink className="w-3.5 h-3.5" aria-hidden="true" />
+                  <span className="sr-only"> (se abre en otra pestaña)</span>
+                </a>
+              </li>
+            ))}
+          </ul>
         </div>
       </Aparecer>
     ))}

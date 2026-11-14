@@ -23,7 +23,7 @@ export default function Home() {
         id="aportar"
         etiqueta="Qué puedo aportar"
         titulo={<>Del código <span className="text-secondary">a producción</span></>}
-        intro="Cada punto tiene un ejemplo real que puedes abrir y probar."
+        intro="Cada punto lleva un ejemplo real con enlaces para comprobarlo."
       >
         <Aportaciones />
       </Seccion>
