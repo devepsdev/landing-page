@@ -1,16 +1,14 @@
 import {
-  BookText,
+  Sparkles,
+  Layers,
+  Bot,
   CodeSquare,
   HomeIcon,
   UserRound,
   Linkedin,
   Github,
-  Pencil,
-  Computer,
   Server,
-  Database,
   Shield,
-  Smartphone,
   Activity,
 } from "lucide-react";
 
@@ -44,8 +42,8 @@ export const itemsNavbar = [
   },
   {
     id: 3,
-    title: "Servicios",
-    icon: <BookText size={25} color="#fff" strokeWidth={1} />,
+    title: "Qué puedo aportar",
+    icon: <Sparkles size={25} color="#fff" strokeWidth={1} />,
     link: "/services",
   },
   {
@@ -62,8 +60,8 @@ export const itemsNavbar = [
   },
 ];
 
-// Trayectoria (datos dados por Enrique el 2026-11-14). Las empresas y descripciones del
-// trabajo actual y del reparto están pendientes de que él las confirme: no inventarlas.
+// Trayectoria técnica (decidido con Enrique el 2026-11-14: solo experiencia relacionada con el desarrollo;
+// su etapa anterior se menciona en una frase de Sobre mí). No inventar empresas, fechas ni tareas.
 export const dataAboutPage: {
   id: number;
   tipo: "experiencia" | "formacion";
@@ -76,7 +74,10 @@ export const dataAboutPage: {
   {
     id: 1,
     tipo: "experiencia",
-    title: "Auxiliar administrativo y coordinador logístico",
+    title: "Fundador y desarrollador Full Stack y DevOps",
+    subtitle: "PedidAI · pedidai.es",
+    description:
+      "Diseño, desarrollo y mantengo en producción una plataforma de compras para bares y restaurantes: API en Spring Boot (Java 25), web en Angular, MySQL, lectura de albaranes con Tesseract y Mistral AI, asistente de pedidos y automatizaciones con n8n. Desplegada en mi propio VPS con nginx, systemd y Docker.",
     dateStart: "abr 2026",
     dateEnd: "actualidad",
   },
@@ -109,13 +110,6 @@ export const dataAboutPage: {
       "Desarrollé aplicaciones móviles nativas para Android con Java y Kotlin (Jetpack Compose) y aplicaciones de escritorio con JavaFX y .NET. Trabajé con programación concurrente y desarrollo de videojuegos con LibGDX. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos PostgreSQL y MySQL.",
     dateStart: "sep 2023",
     dateEnd: "jun 2025",
-  },
-  {
-    id: 5,
-    tipo: "experiencia",
-    title: "Repartidor",
-    dateStart: "ene 2000",
-    dateEnd: "jul 2024",
   },
   {
     id: 6,
@@ -157,8 +151,8 @@ export const dataCounter = [
   },
   {
     id: 2,
-    endCounter: 24,
-    text: "Años de experiencia laboral",
+    endCounter: 6,
+    text: "Años en informática",
     lineRight: true,
     lineRightMobile: true,
   },
@@ -171,42 +165,35 @@ export const dataCounter = [
   },
 ];
 
-export const serviceData = [
+// «Qué puedo aportar»: cada punto con un ejemplo comprobable en los proyectos del portfolio.
+export const dataAportar = [
   {
-    icon: <Pencil />,
-    title: "Diseño web",
+    icon: <Layers strokeWidth={1.5} />,
+    title: "Desarrollo Full Stack",
     description:
-      "Diseño creativo y profesional de interfaces web intuitivas y atractivas, centradas en la experiencia del usuario",
+      "Aplicaciones completas: backend con Spring Boot o Django, frontend con Angular, React o Next.js y bases de datos MySQL o PostgreSQL.",
+    ejemplo: "PedidAI (Spring Boot + Angular), Facialy (Django + React) y Reserva (Next.js + Prisma).",
   },
   {
-    icon: <Smartphone />,
-    title: "Desarrollo Móvil",
+    icon: <Server strokeWidth={1.5} />,
+    title: "DevOps y despliegue",
     description:
-      "Aplicaciones nativas y híbridas para iOS y Android con Kotlin y Flutter",
+      "Servidores Linux, nginx, Docker, systemd y CI/CD con GitHub Actions. Lo que desarrollo lo dejo funcionando en producción y vigilado.",
+    ejemplo: "Mis proyectos corren en mi propio VPS; Facialy se despliega solo con GitHub Actions.",
   },
   {
-    icon: <Database />,
-    title: "Base de Datos",
+    icon: <Bot strokeWidth={1.5} />,
+    title: "IA aplicada con control",
     description:
-      "Diseño y optimización de bases de datos relacionales y NoSQL para máximo rendimiento",
+      "Integración de modelos de lenguaje en productos reales: lectura de documentos, asistentes con herramientas y agentes que solo pueden leer.",
+    ejemplo: "PedidAI lee albaranes con Tesseract y Mistral AI; Triage investiga averías por MCP y acierta 86 de 100.",
   },
   {
-    icon: <Computer />,
-    title: "Desarrollo APPs",
+    icon: <Shield strokeWidth={1.5} />,
+    title: "Seguridad desde el diseño",
     description:
-      "Diseño y desarrollo de aplicaciones multiplataforma a medida, adaptados a tus necesidades",
-  },
-  {
-    icon: <Server />,
-    title: "Backend",
-    description:
-      "Construcción de APIs seguras, integración de bases de datos y lógica de negocio optimizada para el rendimiento",
-  },
-  {
-    icon: <Shield />,
-    title: "DevOps & Deploy",
-    description:
-      "Configuración de CI/CD, despliegue en cloud y monitoreo de aplicaciones en producción",
+      "Mínimos permisos, servicios aislados y cabeceras de seguridad; pruebas contra la inyección de instrucciones en la IA.",
+    ejemplo: "La API de PedidAI solo escucha en local tras nginx; a Triage la inyección le engañó 0 de 20 veces.",
   },
 ];
 

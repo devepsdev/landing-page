@@ -1,30 +1,36 @@
 import { dataPortfolio } from "@/data";
 
-import AvatarPortfolio from "@/components/avatar-portfolio";
-import CircleImage from "@/components/circle-image";
-import TransitionPage from "@/components/transition-page";
-import ContainerPage from "@/components/container-page";
+import Aparecer from "@/components/aparecer";
+import LlamadaContacto from "@/components/llamada-contacto";
 import PortfolioBox from "@/components/portfolio-box";
-
+import TransitionPage from "@/components/transition-page";
 
 const PortfolioPage = () => {
-
     return (
-        <ContainerPage>
+        <main>
             <TransitionPage />
-            <AvatarPortfolio />
-            <CircleImage />
-            <div className="flex flex-col justify-center h-full">
-                <h1 className="text-2xl leading-tight text-center md:text-4xl">Mis últimos <span className="font-bold text-secondary">trabajos realizados</span></h1>
-                <p className="mt-3 text-center text-gray-300 md:mb-4">Proyectos desplegados y en marcha, con su código en GitHub.</p>
-
-                <div className="relative z-10 grid w-full max-w-6xl gap-6 mx-auto mt-6 md:grid-cols-2">
-                    {dataPortfolio.map((data) => (
-                        <PortfolioBox key={data.id} data={data} />
-                    ))}
+            <section className="px-4 pt-32 pb-16 md:px-6 md:pt-40">
+                <div className="max-w-6xl mx-auto">
+                    <div className="max-w-2xl mb-12">
+                        <p className="mb-3 text-sm font-semibold tracking-[0.2em] uppercase text-secondary">Portfolio</p>
+                        <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl text-balance">
+                            Proyectos desplegados <span className="text-secondary">y en marcha</span>
+                        </h1>
+                        <p className="mt-6 text-lg leading-relaxed text-gray-300">
+                            Todos tienen su demo pública y su código en GitHub.
+                        </p>
+                    </div>
+                    <div className="grid gap-6 md:grid-cols-2">
+                        {dataPortfolio.map((data, i) => (
+                            <Aparecer key={data.id} retraso={(i % 2) * 120}>
+                                <PortfolioBox data={data} />
+                            </Aparecer>
+                        ))}
+                    </div>
                 </div>
-            </div>
-        </ContainerPage>
+            </section>
+            <LlamadaContacto />
+        </main>
     );
 }
 

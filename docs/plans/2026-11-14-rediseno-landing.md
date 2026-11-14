@@ -51,9 +51,9 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
 - Modificar: las páginas que los usan (`about-me`, `contact`, `portfolio`, `services`, `app/page.tsx`)
 - `package.json`: quitar `tsparticles` y `@tsparticles/react`
 
-- [ ] Hacer los cambios
-- [ ] Verificar: `npx tsc --noEmit` y `npm run lint` sin errores; `grep -r "avatar-\|circles.png\|tsparticles" app components` vacío
-- [ ] Commit «Rediseño: base visual, sin muñecos ni partículas»
+- [x] Hacer los cambios
+- [x] Verificar: `npx tsc --noEmit` y `npm run lint` sin errores; `grep -r "avatar-\|circles.png\|tsparticles" app components` vacío
+- [x] Commit «Rediseño: base visual, sin muñecos ni partículas»
 
 ### Tarea 2: Portada — cabecera con foto, paralaje y 3D
 
@@ -64,9 +64,9 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
 
 - Paralaje: la foto, el brillo naranja de detrás y el fondo se mueven a distinta velocidad con el ratón y al hacer scroll (`useScroll`, `useTransform`).
 - El 3D: `dynamic(() => import(...), { ssr: false })`, solo si hay WebGL, no es móvil y no hay «reducir movimiento».
-- [ ] Hacer los cambios
-- [ ] Verificar en el navegador a 1440 px y 375 px; emular «reducir movimiento»; medir el JS de la portada en el build
-- [ ] Commit «Rediseño: portada con foto, paralaje y escena 3D»
+- [x] Hacer los cambios
+- [x] Verificar en el navegador a 1440 px y 375 px; emular «reducir movimiento»; medir el JS de la portada en el build
+- [x] Commit «Rediseño: portada con foto, paralaje y escena 3D»
 
 ### Tarea 3: Portada — secciones al hacer scroll
 
@@ -76,9 +76,9 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
   `tecnologias.tsx` (usa `dataTecnologias`), `llamada-contacto.tsx`
 - Modificar: `app/page.tsx`
 
-- [ ] Hacer los cambios
-- [ ] Verificar que todo el texto está en `out/index.html` y que se ve con «reducir movimiento»
-- [ ] Commit «Rediseño: secciones de la portada»
+- [x] Hacer los cambios
+- [x] Verificar que todo el texto está en `out/index.html` y que se ve con «reducir movimiento»
+- [x] Commit «Rediseño: secciones de la portada»
 
 ### Tarea 4: Sobre mí
 
@@ -87,9 +87,9 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
 - Modificar: `components/counter-services.tsx` (el contador empieza al verse y muestra la cifra final si no hay animación)
 - Modificar: `app/(routes)/about-me/page.tsx` (añadir la sección de tecnologías)
 
-- [ ] Hacer los cambios
-- [ ] Verificar en el navegador: cifras 3 / 4 / 24 / 34 y sin «SIT»
-- [ ] Commit «Rediseño: Sobre mí»
+- [x] Hacer los cambios
+- [x] Verificar en el navegador: cifras 3 / 4 / 24 / 34 y sin «SIT»
+- [x] Commit «Rediseño: Sobre mí»
 
 ### Tarea 5: Servicios, Portfolio, Contacto y Servidor con el estilo nuevo
 
@@ -98,14 +98,14 @@ secciones (resumen de todo); las demás páginas quedan como detalle. Animacione
 `components/transition-page.tsx` (transición más corta y discreta)
 
 - Servicios: depende de la decisión pendiente (ver abajo).
-- [ ] Hacer los cambios
-- [ ] Verificar cada página a 1440 y 375 px y con el teclado (foco visible)
-- [ ] Commit «Rediseño: resto de páginas»
+- [x] Hacer los cambios
+- [x] Verificar cada página a 1440 y 375 px y con el teclado (foco visible)
+- [x] Commit «Rediseño: resto de páginas»
 
 ### Tarea 6: Comprobación final
 
-- [ ] `npx tsc --noEmit`, `npm run lint`, `npm run build` sin errores
-- [ ] Recorrer todas las páginas en local (escritorio, móvil, «reducir movimiento»), sin errores en la consola
+- [x] `npx tsc --noEmit`, `npm run lint`, `npm run build` sin errores
+- [x] Recorrer todas las páginas en local (escritorio, móvil, «reducir movimiento»), sin errores en la consola
 - [ ] Enseñar capturas a Enrique y pedir permiso para desplegar con `./deploy.sh` y para juntar con `main`
 
 ## Pendiente de Enrique

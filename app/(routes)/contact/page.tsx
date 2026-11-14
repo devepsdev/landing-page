@@ -4,8 +4,6 @@ import { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 
-import CircleImage from "@/components/circle-image";
-import AvatarPortfolio from "@/components/avatar-portfolio";
 import TransitionPage from "@/components/transition-page";
 import ContainerPage from "@/components/container-page";
 
@@ -153,15 +151,18 @@ const ContactPage = () => {
   return (
     <ContainerPage>
       <TransitionPage />
-      <AvatarPortfolio />
-      <CircleImage />
       <div className="flex flex-col justify-center h-full">
-        <h1 className="text-2xl leading-tight text-center md:text-4xl md:mb-5">
-          Ponte en{" "}
-          <span className="font-bold text-secondary">contacto conmigo</span>
-        </h1>
+        <div className="max-w-2xl">
+          <p className="mb-3 text-sm font-semibold tracking-[0.2em] uppercase text-secondary">Contacto</p>
+          <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl text-balance">
+            Hablemos <span className="text-secondary">de tu equipo</span>
+          </h1>
+          <p className="mt-6 text-lg leading-relaxed text-gray-300">
+            Si buscáis a alguien para desarrollar y desplegar, escribidme y os respondo lo antes posible.
+          </p>
+        </div>
 
-        <div className="relative z-10 grid max-w-6xl gap-8 mx-auto mt-8 md:grid-cols-2">
+        <div className="relative z-10 grid w-full max-w-6xl gap-8 mt-12 md:grid-cols-2">
           {/* Información de contacto */}
           <div className="space-y-8">
             <div>
@@ -170,8 +171,8 @@ const ContactPage = () => {
               </h2>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-secondary/20 rounded-lg">
-                    <Mail className="w-6 h-6 text-secondary" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/15">
+                    <Mail className="w-6 h-6 text-secondary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-medium">Email</h3>
@@ -180,8 +181,8 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-secondary/20 rounded-lg">
-                    <Phone className="w-6 h-6 text-secondary" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/15">
+                    <Phone className="w-6 h-6 text-secondary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-medium">Teléfono</h3>
@@ -190,8 +191,8 @@ const ContactPage = () => {
                 </div>
 
                 <div className="flex items-center space-x-4">
-                  <div className="flex items-center justify-center w-12 h-12 bg-secondary/20 rounded-lg">
-                    <MapPin className="w-6 h-6 text-secondary" />
+                  <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-secondary/15">
+                    <MapPin className="w-6 h-6 text-secondary" aria-hidden="true" />
                   </div>
                   <div>
                     <h3 className="font-medium">Ubicación</h3>
@@ -203,18 +204,25 @@ const ContactPage = () => {
               </div>
             </div>
 
-            <div>
-              <h3 className="text-lg font-medium mb-4">¿Trabajamos juntos?</h3>
-              <p className="text-gray-300 leading-relaxed">
-                Estoy disponible para proyectos de desarrollo Full Stack. Si
-                tienes una idea en mente o necesitas ayuda con tu próximo
-                proyecto, no dudes en contactarme. ¡Hagamos realidad tu visión!
+            <div className="p-6 border rounded-2xl border-white/10 bg-darkBg/60">
+              <h3 className="mb-3 text-lg font-semibold">¿Qué busco?</h3>
+              <p className="leading-relaxed text-gray-300">
+                Incorporarme a un equipo de desarrollo como Full Stack o DevOps. Puedes ver lo que he hecho en
+                el{" "}
+                <Link href="/portfolio" className="text-secondary hover:underline underline-offset-4">
+                  portfolio
+                </Link>{" "}
+                y mi trayectoria en{" "}
+                <Link href="/about-me" className="text-secondary hover:underline underline-offset-4">
+                  Sobre mí
+                </Link>
+                .
               </p>
             </div>
           </div>
 
           {/* Formulario de contacto */}
-          <div className="bg-white/5 backdrop-blur-sm rounded-lg p-6 border border-white/10">
+          <div className="p-6 border rounded-2xl md:p-8 bg-darkBg/80 border-white/10">
             <h2 className="text-xl font-semibold mb-6 text-secondary">
               Envíame un mensaje
             </h2>

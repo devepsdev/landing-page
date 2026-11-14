@@ -8,15 +8,15 @@ const Header = () => {
   return (
     <MotionTransition
       position="bottom"
-      className="absolute z-40 inline-block w-full top-5 md:top-10"
+      className="absolute z-40 inline-block w-full px-4 top-5 md:top-8"
     >
       <header>
         <div className="container justify-between max-w-6xl mx-auto md:flex">
           <Link href="/">
-            <h1 className="my-3 text-4xl font-bold text-center md:text-left">
+            <span className="block my-3 text-3xl font-bold tracking-tight text-center md:text-left">
               Dev
               <span className="text-secondary">Eps</span>
-            </h1>
+            </span>
           </Link>
           <div className="flex items-center justify-center gap-7">
             {socialNetworks.map(({ logo, src, id, name }) => (

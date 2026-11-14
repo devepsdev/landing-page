@@ -3,25 +3,111 @@
 @tailwind utilities;
 
 html {
-  /* height: 100%; */
+  scroll-behavior: smooth;
 }
-html,
-body {
-  /* height: 100%; */
+
+/* El fondo va en html y body queda transparente: si no, taparía el fondo común (z-index negativo) */
+html {
   color: #fff;
-  background: #1f1934;
+  background: #0b0c16;
+}
+body {
+  background: transparent;
 }
 
-main {
-  background: #393a47;
-  height: 100vh;
-  height: 100dvh;
+::selection {
+  background: rgba(245, 116, 28, 0.35);
 }
 
-.swiper-horizontal > .swiper-pagination-bullets .swiper-pagination-bullet,
-.swiper-pagination-horizontal.swiper-pagination-bullets
-  .swiper-pagination-bullet {
-  background-color: #f5741c;
+/* Foco visible con teclado sobre fondo oscuro */
+:focus-visible {
+  outline: 2px solid #f5741c;
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* Aparición al hacer scroll (components/aparecer.tsx). El contenido es visible por defecto:
+   solo se oculta cuando el script lo marca como pendiente, así nunca se queda invisible. */
+.aparecer-pendiente {
+  opacity: 0;
+  transform: translateY(28px);
+}
+.aparecer-visible {
+  opacity: 1;
+  transform: none;
+  transition: opacity 0.7s cubic-bezier(0.22, 1, 0.36, 1), transform 0.7s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Cortinilla al entrar en una página (components/transition-page.tsx) */
+.cortinilla {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  background: #14152a;
+  pointer-events: none;
+  transform-origin: right;
+  animation: cortinilla 0.5s cubic-bezier(0.65, 0, 0.35, 1) 0.05s both;
+}
+@keyframes cortinilla {
+  from {
+    transform: scaleX(1);
+  }
+  to {
+    transform: scaleX(0);
+  }
+}
+
+/* Entrada del menú y la cabecera (components/transition-component.tsx) */
+.entrada-desde-arriba,
+.entrada-desde-abajo,
+.entrada-desde-derecha {
+  animation: entrada 0.8s cubic-bezier(0.22, 1, 0.36, 1) 0.25s both;
+}
+.entrada-desde-arriba {
+  --desde: translateY(-24px);
+}
+.entrada-desde-abajo {
+  --desde: translateY(24px);
+}
+.entrada-desde-derecha {
+  --desde: translateX(32px);
+}
+@keyframes entrada {
+  from {
+    opacity: 0;
+    transform: var(--desde);
+  }
+}
+
+.fundido-entrada {
+  animation: fundido 1.6s ease-out both;
+}
+@keyframes fundido {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  .aparecer-pendiente {
+    opacity: 1;
+    transform: none;
+  }
+  .cortinilla {
+    display: none;
+  }
+  .entrada-desde-arriba,
+  .entrada-desde-abajo,
+  .entrada-desde-derecha,
+  .fundido-entrada {
+    animation: none;
+  }
 }
 
 @layer utilities {

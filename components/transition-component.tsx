@@ -1,26 +1,16 @@
-"use client"
-
-import { motion } from "framer-motion";
-import { fadeIn } from "@/utils/motion-transitions";
-
+// Entrada suave del menú y la cabecera. Solo CSS (globals.css): se ven aunque el script tarde.
 export type MotionTransitionProps = {
     children: React.ReactNode;
     className?: string;
-    position: 'right' | 'bottom'
+    position: 'right' | 'bottom' | 'bottom-up'
 };
 
-export function MotionTransition(props: MotionTransitionProps) {
-    const { children, className, position } = props
+const clases = {
+    bottom: "entrada-desde-arriba",
+    "bottom-up": "entrada-desde-abajo",
+    right: "entrada-desde-derecha",
+};
 
-    return (
-        <motion.div
-            variants={fadeIn(position)}
-            initial="hidden"
-            animate="visible"
-            exit="hidden"
-            className={className}
-        >
-            {children}
-        </motion.div>
-    )
+export function MotionTransition({ children, className = "", position }: MotionTransitionProps) {
+    return <div className={`${clases[position]} ${className}`}>{children}</div>
 }

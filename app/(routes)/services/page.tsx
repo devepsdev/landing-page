@@ -1,41 +1,28 @@
-import AvatarServices from "@/components/avatar-services";
-import CircleImage from "@/components/circle-image";
-import SliderServices from "@/components/slider-services";
+import Aportaciones from "@/components/aportaciones";
+import LlamadaContacto from "@/components/llamada-contacto";
 import TransitionPage from "@/components/transition-page";
-import Link from "next/link";
 
 const ServicesPage = () => {
   return (
-    <>
+    <main>
       <TransitionPage />
-      <CircleImage />
-      <AvatarServices />
-      <div className="relative z-10 grid items-center justify-center max-w-5xl gap-6 mx-auto md:grid-cols-2 md:h-screen pt-32 pb-32 md:pt-0 md:pb-0 px-4 md:px-0">
-        <div className="max-w-[450px]">
-          <h1 className="text-2xl leading-tight text-center md:text-left md:text-4xl md:mb-5">
-            Mis <span className="font-bold text-secondary"> servicios.</span>
-          </h1>
-          <p className="mb-3 text-xl text-gray-300">
-            Desarrollo soluciones tecnológicas end-to-end utilizando las mejores
-            prácticas de la industria. Mi experiencia abarca el desarrollo
-            frontend con React, Angular y Next.js, backends robustos con Spring
-            Boot, Node.js y Express, arquitecturas de bases de datos optimizadas,
-            y estrategias de despliegue modernas con DevOps. Cada servicio está
-            diseñado para integrarse perfectamente con los demás, creando un
-            ecosistema digital coherente y eficiente que escala con tu negocio y
-            se adapta a las necesidades cambiantes del mercado.
-          </p>
-          <button className="px-3 py-2 rounded-lg bg-secondary hover:bg-secondary/65">
-            <Link href="/contact">Contacta conmigo</Link>
-          </button>
+      <section className="px-4 pt-32 pb-16 md:px-6 md:pt-40">
+        <div className="max-w-6xl mx-auto">
+          <div className="max-w-2xl mb-12">
+            <p className="mb-3 text-sm font-semibold tracking-[0.2em] uppercase text-secondary">Qué puedo aportar</p>
+            <h1 className="text-4xl font-bold leading-tight tracking-tight md:text-6xl text-balance">
+              Del código <span className="text-secondary">a producción</span>
+            </h1>
+            <p className="mt-6 text-lg leading-relaxed text-gray-300">
+              Desarrollo la aplicación entera y me ocupo de que funcione después: servidor, despliegue,
+              seguridad y vigilancia. Cada punto tiene un ejemplo real que puedes abrir y probar.
+            </p>
+          </div>
+          <Aportaciones />
         </div>
-
-        {/* SLIDER */}
-        <div>
-          <SliderServices />
-        </div>
-      </div>
-    </>
+      </section>
+      <LlamadaContacto />
+    </main>
   );
 };
 
