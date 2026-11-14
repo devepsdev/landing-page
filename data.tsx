@@ -62,18 +62,37 @@ export const itemsNavbar = [
   },
 ];
 
-export const dataAboutPage = [
+// Trayectoria (datos dados por Enrique el 2026-11-14). Las empresas y descripciones del
+// trabajo actual y del reparto están pendientes de que él las confirme: no inventarlas.
+export const dataAboutPage: {
+  id: number;
+  tipo: "experiencia" | "formacion";
+  title: string;
+  subtitle?: string;
+  description?: string;
+  dateStart: string;
+  dateEnd: string;
+}[] = [
   {
     id: 1,
-    title: "Full Stack Developer — Colaboración técnica",
-    subtitle: "SIT · Barcelona",
-    description:
-      "Desarrollo y mantenimiento de aplicaciones web para clientes del sector educativo. Implemento el frontend con Angular y el backend con Spring Boot, diseño APIs REST e integro con MySQL. Uso Git para control de versiones y doy soporte al despliegue con Docker y CI/CD en GitHub Actions.",
-    dateStart: "jul 2024",
+    tipo: "experiencia",
+    title: "Auxiliar administrativo y coordinador logístico",
+    dateStart: "abr 2026",
     dateEnd: "actualidad",
   },
   {
     id: 2,
+    tipo: "formacion",
+    title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
+    subtitle: "IOC - Institut Obert de Catalunya",
+    description:
+      "Formación completa en desarrollo web full-stack. Implementé aplicaciones con Spring Boot, Node, React, Angular, Java EE (JSP, Servlets), JavaScript, HTML5/CSS3 y PHP, trabajando con arquitecturas REST, sistemas de autenticación JWT y despliegue en servidores Linux. Proyecto destacado: Abasta (gestión B2B de proveedores).",
+    dateStart: "sep 2023",
+    dateEnd: "ene 2026",
+  },
+  {
+    id: 3,
+    tipo: "experiencia",
     title: "Full Stack Developer — Prácticas FCT",
     subtitle: "Grup Essentia",
     description:
@@ -82,25 +101,25 @@ export const dataAboutPage = [
     dateEnd: "jun 2025",
   },
   {
-    id: 3,
-    title: "CFGS Desarrollo de Aplicaciones Web (DAW)",
-    subtitle: "IOC - Institut Obert de Catalunya",
-    description:
-      "Formación completa en desarrollo web full-stack. Implementé aplicaciones con Spring Boot, Node, React, Angular, Java EE (JSP, Servlets), JavaScript, HTML5/CSS3 y PHP, trabajando con arquitecturas REST, sistemas de autenticación JWT y despliegue en servidores Linux. Proyecto destacado: Abasta (gestión B2B de proveedores).",
-    dateStart: "sep 2024",
-    dateEnd: "ene 2026",
-  },
-  {
     id: 4,
+    tipo: "formacion",
     title: "CFGS Desarrollo de Aplicaciones Multiplataforma (DAM)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
       "Desarrollé aplicaciones móviles nativas para Android con Java y Kotlin (Jetpack Compose) y aplicaciones de escritorio con JavaFX y .NET. Trabajé con programación concurrente y desarrollo de videojuegos con LibGDX. Implementé arquitecturas MVVM, integración con APIs REST y gestión de bases de datos PostgreSQL y MySQL.",
     dateStart: "sep 2023",
-    dateEnd: "ene 2025",
+    dateEnd: "jun 2025",
   },
   {
     id: 5,
+    tipo: "experiencia",
+    title: "Repartidor",
+    dateStart: "ene 2000",
+    dateEnd: "jul 2024",
+  },
+  {
+    id: 6,
+    tipo: "formacion",
     title: "CFGS Administración de Sistemas Informáticos en Red (ASIR)",
     subtitle: "IOC - Institut Obert de Catalunya",
     description:
@@ -108,6 +127,17 @@ export const dataAboutPage = [
     dateStart: "sep 2020",
     dateEnd: "jun 2023",
   },
+];
+
+// Tecnologías: las de los proyectos del portfolio y de los servicios desplegados
+// (Analiza tu web y el monitor en FastAPI, el asistente de PedidAI en Express), más las habituales.
+export const dataTecnologias = [
+  { grupo: "Backend", items: ["Java", "Spring Boot", "Python", "Django", "Django REST Framework", "FastAPI", "Node.js", "Express"] },
+  { grupo: "Frontend", items: ["Angular", "React", "Next.js", "TypeScript", "JavaScript", "HTML5", "CSS3", "Tailwind CSS", "Vite"] },
+  { grupo: "Datos", items: ["MySQL", "PostgreSQL", "Prisma"] },
+  { grupo: "IA y automatización", items: ["Mistral AI", "MCP", "OpenCV", "Tesseract", "n8n"] },
+  { grupo: "DevOps", items: ["Docker", "Linux", "nginx", "GitHub Actions (CI/CD)", "Vercel"] },
+  { grupo: "Forma de trabajar", items: ["Git", "GitHub", "APIs REST", "Metodologías ágiles"] },
 ];
 
 export const dataCounter = [
@@ -120,22 +150,22 @@ export const dataCounter = [
   },
   {
     id: 1,
-    endCounter: 8,
-    text: "Proyectos portfolio",
+    endCounter: 4,
+    text: "Proyectos en el portfolio",
     lineRight: true,
     lineRightMobile: false,
   },
   {
     id: 2,
-    endCounter: 25,
-    text: "Años experiencia profesional",
+    endCounter: 24,
+    text: "Años de experiencia laboral",
     lineRight: true,
     lineRightMobile: true,
   },
   {
     id: 3,
-    endCounter: 6,
-    text: "Tecnologías dominadas",
+    endCounter: dataTecnologias.reduce((n, g) => n + g.items.length, 0),
+    text: "Tecnologías",
     lineRight: false,
     lineRightMobile: false,
   },
