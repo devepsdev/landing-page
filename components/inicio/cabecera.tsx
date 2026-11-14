@@ -43,7 +43,11 @@ const Cabecera = () => {
   const { scrollYProgress } = useScroll({ target: ref, offset: ["start start", "end start"] });
   const fotoY = useTransform(scrollYProgress, [0, 1], [0, 120]);
   const textoY = useTransform(scrollYProgress, [0, 1], [0, -60]);
-  const desvanecer = useTransform(scrollYProgress, [0, 0.8], [1, 0]);
+  // El texto se desvanece según sale él mismo por arriba, no según avanza toda la cabecera:
+  // en móvil la cabecera mide casi dos pantallas y se difuminaba mientras aún se leía.
+  const refTexto = useRef<HTMLDivElement>(null);
+  const { scrollYProgress: salidaTexto } = useScroll({ target: refTexto, offset: ["start start", "end start"] });
+  const desvanecer = useTransform(salidaTexto, [0.55, 1], [1, 0]);
 
   const fotoX = useTransform(sx, (v) => v * 18);
   const fotoYRaton = useTransform(sy, (v) => v * 10);
@@ -65,7 +69,7 @@ const Cabecera = () => {
 
       <div className="relative grid items-center w-full max-w-6xl gap-10 mx-auto md:grid-cols-[1.1fr_0.9fr]">
         {/* Texto */}
-        <motion.div style={m({ y: textoY, opacity: desvanecer })} className="order-2 text-center md:order-1 md:text-left">
+        <motion.div ref={refTexto} style={m({ y: textoY, opacity: desvanecer })} className="order-2 text-center md:order-1 md:text-left">
           <p className="inline-flex items-center gap-2 px-3 py-1 mb-6 text-sm border rounded-full border-white/10 bg-white/5 text-gray-200">
             <span className="relative flex w-2 h-2">
               <span className="absolute inline-flex w-full h-full rounded-full opacity-75 bg-emerald-400 motion-safe:animate-ping" />
