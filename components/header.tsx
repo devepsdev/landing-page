@@ -12,7 +12,8 @@ const Header = () => {
     >
       <header>
         <div className="container justify-between max-w-6xl mx-auto md:flex">
-          <Link href="/">
+          {/* aria-label con «DevEps» seguido: el monitor del VPS (devmon) lo busca en el HTML de la portada */}
+          <Link href="/" aria-label="DevEps · Inicio">
             <span className="block my-3 text-3xl font-bold tracking-tight text-center md:text-left">
               Dev
               <span className="text-secondary">Eps</span>
