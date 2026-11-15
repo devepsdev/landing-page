@@ -2,6 +2,14 @@
 
 Un portfolio moderno y elegante desarrollado con Next.js 14, diseñado para mostrar proyectos y servicios de desarrollo web de manera impactante.
 
+![Portada del portfolio](docs/capturas/portada.png)
+
+## Capturas
+
+![Proyectos desplegados](docs/capturas/proyectos.png)
+
+![Qué puedo aportar](docs/capturas/servicios.png)
+
 ## 🚀 Características
 
 - **Diseño Moderno**: Interfaz elegante con animaciones fluidas y efectos visuales atractivos
